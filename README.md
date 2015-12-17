@@ -1,1 +1,0 @@
-# couchdb-centos-rpm

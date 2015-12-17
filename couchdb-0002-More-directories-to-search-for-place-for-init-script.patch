@@ -1,0 +1,39 @@
+From: Peter Lemenkov <lemenkov@gmail.com>
+Date: Sun, 13 Feb 2011 14:21:20 +0300
+Subject: [PATCH] More directories to search for place for init-script
+
+Signed-off-by: Peter Lemenkov <lemenkov@gmail.com>
+
+diff --git a/configure.ac b/configure.ac
+index 103f029..0c36065 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -528,17 +528,23 @@ launchd_enabled=false
+ 
+ if test "$use_init" = "yes"; then
+    AC_MSG_CHECKING(location of init directory)
+-   if test -d /etc/rc.d; then
++   if test -d /etc/rc.d/init.d; then
+        init_enabled=true
+-       AC_SUBST([initdir], ['${sysconfdir}/rc.d'])
++       AC_SUBST([initdir], ['${sysconfdir}/rc.d/init.d'])
+        AC_MSG_RESULT(${initdir})
+    else
+-       if test -d /etc/init.d; then
++       if test -d /etc/rc.d; then
+            init_enabled=true
+-           AC_SUBST([initdir], ['${sysconfdir}/init.d'])
++           AC_SUBST([initdir], ['${sysconfdir}/rc.d'])
+            AC_MSG_RESULT(${initdir})
+        else
+-           AC_MSG_RESULT(not found)
++           if test -d /etc/init.d; then
++              init_enabled=true
++              AC_SUBST([initdir], ['${sysconfdir}/init.d'])
++              AC_MSG_RESULT(${initdir})
++           else
++              AC_MSG_RESULT(not found)
++           fi
+        fi
+     fi
+ fi

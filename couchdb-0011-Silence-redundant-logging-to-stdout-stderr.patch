@@ -1,0 +1,44 @@
+From: Warren Togami <wtogami@gmail.com>
+Date: Wed, 2 Jul 2014 22:54:38 -1000
+Subject: [PATCH] Silence redundant logging to stdout/stderr
+
+Instead print log filename to stdout during startup.
+
+CouchDB already logs everything to /var/log/couchdb/couch.log.
+The stdout/stderr redundantly floods /var/log/messages.
+This temporary hack was suggested by rnewson in #couchdb.
+https://issues.apache.org/jira/browse/COUCHDB-2264
+Related issue
+
+diff --git a/src/couchdb/couch_log.erl b/src/couchdb/couch_log.erl
+index cd4bbbb..db483a7 100644
+--- a/src/couchdb/couch_log.erl
++++ b/src/couchdb/couch_log.erl
+@@ -204,7 +204,7 @@ terminate(_Arg, #state{fd = Fd}) ->
+     file:close(Fd).
+ 
+ log(#state{fd = Fd}, ConsoleMsg, FileMsg) ->
+-    ok = io:put_chars(ConsoleMsg),
++    %ok = io:put_chars(ConsoleMsg),
+     ok = io:put_chars(Fd, FileMsg).
+ 
+ get_log_messages(Pid, Level, Format, Args) ->
+diff --git a/src/couchdb/couch_server_sup.erl b/src/couchdb/couch_server_sup.erl
+index be3c3a3..39a5568 100644
+--- a/src/couchdb/couch_server_sup.erl
++++ b/src/couchdb/couch_server_sup.erl
+@@ -56,10 +56,12 @@ start_server(IniFiles) ->
+     {ok, ConfigPid} = couch_config:start_link(IniFiles),
+ 
+     LogLevel = couch_config:get("log", "level", "info"),
++    LogFileName = couch_config:get("log", "file"),
+     % announce startup
+-    io:format("Apache CouchDB ~s (LogLevel=~s) is starting.~n", [
++    io:format("Apache CouchDB ~s (LogLevel=~s) is logging to ~s.~n", [
+         couch_server:get_version(),
+-        LogLevel
++        LogLevel,
++        LogFileName
+     ]),
+     case LogLevel of
+     "debug" ->
