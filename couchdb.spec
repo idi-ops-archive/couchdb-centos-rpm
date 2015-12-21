@@ -41,6 +41,7 @@ Patch14:	couchdb-0014-Add-run-script-to-execute-eunit-tests.patch
 
 BuildRequires:  autoconf
 BuildRequires:  autoconf-archive
+BuildRequires:  make
 BuildRequires:  automake
 BuildRequires:  libtool
 BuildRequires:  gcc-c++
