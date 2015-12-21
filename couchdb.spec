@@ -40,20 +40,21 @@ Patch13:        couchdb-0013-Add-systemd-notification-support.patch
 Patch14:	couchdb-0014-Add-run-script-to-execute-eunit-tests.patch
 
 BuildRequires:  autoconf
-BuildRequires:    autoconf-archive
+BuildRequires:  autoconf-archive
 BuildRequires:  automake
 BuildRequires:  libtool
-BuildRequires:    curl-devel >= 7.18.0
-BuildRequires:    erlang-erts >= R13B
-BuildRequires:    erlang-eunit >= R15B
-BuildRequires:    erlang-ibrowse >= 4.0.1
-BuildRequires:    erlang-mochiweb
-BuildRequires:    erlang-oauth >= 1.3.0
-BuildRequires:    erlang-os_mon
-BuildRequires:    erlang-snappy
-BuildRequires:    help2man
-BuildRequires:    js-devel
-BuildRequires:    libicu-devel
+BuildRequires:  gcc-c++
+BuildRequires:  curl-devel >= 7.18.0
+BuildRequires:  erlang-erts >= R13B
+BuildRequires:  erlang-eunit >= R15B
+BuildRequires:  erlang-ibrowse >= 4.0.1
+BuildRequires:  erlang-mochiweb
+BuildRequires:  erlang-oauth >= 1.3.0
+BuildRequires:  erlang-os_mon
+BuildRequires:  erlang-snappy
+BuildRequires:  help2man
+BuildRequires:  js-devel
+BuildRequires:  libicu-devel
 
 Requires:    erlang-crypto%{?_isa}
 # Error:erlang(erlang:max/2) in R12B and earlier
