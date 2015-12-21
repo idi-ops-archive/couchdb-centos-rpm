@@ -9,6 +9,7 @@
 %{expand: %(DRV_VER=`rpm -q erlang-erts --provides | grep --color=no erl_drv_version` ; if [ "$DRV_VER" != "" ]; then echo %%global __erlang_drv_version $DRV_VER ; fi)}
 
 Name:           couchdb
+Epoch:          1
 Version:        1.6.1
 Release:        1%{?dist}
 Summary:        A document database server, accessible via a RESTful JSON API
