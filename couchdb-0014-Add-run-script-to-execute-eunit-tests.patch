@@ -10029,7 +10029,7 @@ index 0000000..ea1d034
 +    ?_test(begin
 +        UUID = binary_to_list(couch_uuids:new()),
 +        Suffix = get_suffix(UUID),
-+        ?assert(test_same_suffix(10000, Suffix))
++        ?assert(test_same_suffix(1000, Suffix))
 +    end).
 +
 +
@@ -12521,10 +12521,10 @@ index 0000000..ed9b6e8
 +-define(DAEMON_DIE_ON_BOOT, "os_daemon_die_on_boot.sh").
 +-define(DAEMON_DIE_QUICKLY, "os_daemon_die_quickly.sh").
 +-define(DAEMON_CFGREG, "test_cfg_register").
-+-define(DELAY, 100).
++-define(DELAY, 200).
 +-define(FIXTURES_BUILDDIR,
 +        filename:join([?BUILDDIR, "test", "couchdb", "fixtures"])).
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 10000).
 +
 +
 +setup(DName) ->
@@ -13026,7 +13026,7 @@ index 0000000..7226860
 +-define(i2l(I), integer_to_list(I)).
 +-define(ADMIN_USER, {userctx, #user_ctx{roles=[<<"_admin">>]}}).
 +-define(DOC_ID, <<"foobar">>).
-+-define(NUM_CLIENTS, [100, 500, 1000, 2000, 5000, 10000]).
++-define(NUM_CLIENTS, [10, 50, 100]).
 +-define(TIMEOUT, 10000).
 +
 +
