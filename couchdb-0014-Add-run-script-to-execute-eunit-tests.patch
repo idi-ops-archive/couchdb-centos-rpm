@@ -1188,7 +1188,7 @@ index 0000000..4e098ff
 +-include_lib("couchdb/couch_db.hrl").
 +
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +
 +
 +start() ->
@@ -1348,7 +1348,7 @@ index 0000000..2e0b75b
 +-include_lib("couchdb/couch_db.hrl").
 +
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +-define(VALUES, [
 +    null,
 +    false,
@@ -1556,7 +1556,7 @@ index 0000000..4cb7daf
 +-include_lib("couchdb/couch_db.hrl").
 +
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +
 +
 +start() ->
@@ -1663,7 +1663,7 @@ index 0000000..6c30da8
 +-include_lib("couchdb/couch_db.hrl").
 +
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +
 +
 +start() ->
@@ -1755,7 +1755,7 @@ index 0000000..b364b77
 +-include("couch_eunit.hrl").
 +-include_lib("couchdb/couch_db.hrl").
 +
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
 +
 +
@@ -1942,7 +1942,7 @@ index 0000000..ed6018b
 +-include("couch_eunit.hrl").
 +-include_lib("couchdb/couch_db.hrl").
 +
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
 +
 +
@@ -4052,9 +4052,9 @@ index 0000000..05b368e
 +-define(ADMIN_USER, {user_ctx, ?ADMIN_ROLE}).
 +-define(ATTFILE, filename:join([?FIXTURESDIR, "logo.png"])).
 +-define(DELAY, 100).
-+-define(TIMEOUT, 30000).
-+-define(TIMEOUT_STOP, 1000).
-+-define(TIMEOUT_WRITER, 3000).
++-define(TIMEOUT, 150000).
++-define(TIMEOUT_STOP, 5000).
++-define(TIMEOUT_WRITER, 15000).
 +-define(TIMEOUT_EUNIT, ?TIMEOUT div 1000 + 5).
 +
 +setup() ->
@@ -4502,7 +4502,7 @@ index 0000000..88534ed
 +-include_lib("couchdb/couch_db.hrl").
 +
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +
 +
 +start() ->
@@ -4701,8 +4701,8 @@ index 0000000..7c4e334
 +-define(ATT_SIZE_1, 2 * 1024 * 1024).
 +-define(ATT_SIZE_2, round(6.6 * 1024 * 1024)).
 +-define(DOCS_COUNT, 11).
-+-define(TIMEOUT_EUNIT, 30).
-+-define(TIMEOUT_STOP, 1000).
++-define(TIMEOUT_EUNIT, 150).
++-define(TIMEOUT_STOP, 5000).
 +
 +
 +setup() ->
@@ -4929,8 +4929,8 @@ index 0000000..27d51db
 +    {<<"doc3">>, 210}
 +]).
 +-define(NUM_ATTS, 2).
-+-define(TIMEOUT_STOP, 1000).
-+-define(TIMEOUT_EUNIT, 60).
++-define(TIMEOUT_STOP, 5000).
++-define(TIMEOUT_EUNIT, 300).
 +-define(i2l(I), integer_to_list(I)).
 +-define(io2b(Io), iolist_to_binary(Io)).
 +
@@ -5161,8 +5161,8 @@ index 0000000..8c64929
 +-define(ADMIN_ROLE, #user_ctx{roles=[<<"_admin">>]}).
 +-define(ADMIN_USER, {user_ctx, ?ADMIN_ROLE}).
 +-define(REVS_LIMIT, 3).
-+-define(TIMEOUT_STOP, 1000).
-+-define(TIMEOUT_EUNIT, 30).
++-define(TIMEOUT_STOP, 5000).
++-define(TIMEOUT_EUNIT, 150).
 +
 +
 +setup() ->
@@ -5473,8 +5473,8 @@ index 0000000..5356a37
 +-define(ADMIN_ROLE, #user_ctx{roles=[<<"_admin">>]}).
 +-define(ADMIN_USER, {user_ctx, ?ADMIN_ROLE}).
 +-define(DOCS_COUNT, 100).
-+-define(TIMEOUT_STOP, 1000).
-+-define(TIMEOUT_EUNIT, 30).
++-define(TIMEOUT_STOP, 5000).
++-define(TIMEOUT_EUNIT, 150).
 +-define(i2l(I), integer_to_list(I)).
 +-define(io2b(Io), iolist_to_binary(Io)).
 +
@@ -5789,7 +5789,7 @@ index 0000000..3b2321c
 +
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
 +-define(SALT, <<"SALT">>).
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +
 +
 +start() ->
@@ -6589,8 +6589,8 @@ index 0000000..a129ba2
 +-include_lib("couchdb/couch_db.hrl").
 +
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles = [<<"_admin">>]}}).
-+-define(TIMEOUT, 3000).
-+-define(TEST_TIMEOUT, 10000).
++-define(TIMEOUT, 15000).
++-define(TEST_TIMEOUT, 50000).
 +
 +-record(row, {
 +    id,
@@ -7206,8 +7206,8 @@ index 0000000..9e9dfe7
 +-include("couch_eunit.hrl").
 +-include_lib("couchdb/couch_db.hrl").
 +
-+-define(SHORT_TIMEOUT, 100).
-+-define(TIMEOUT, 1000).
++-define(SHORT_TIMEOUT, 500).
++-define(TIMEOUT, 5000).
 +
 +-define(CONFIG_DEFAULT,
 +        filename:join([?BUILDDIR, "etc", "couchdb", "default_dev.ini"])).
@@ -7674,7 +7674,7 @@ index 0000000..3089714
 +
 +-include("couch_eunit.hrl").
 +
-+-define(TIMEOUT, 120).
++-define(TIMEOUT, 600).
 +
 +
 +setup() ->
@@ -8909,7 +8909,7 @@ index 0000000..b7e97b4
 +-include("couch_eunit.hrl").
 +-include_lib("couchdb/couch_db.hrl").
 +
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +
 +
 +setup() ->
@@ -9026,8 +9026,8 @@ index 0000000..d156449
 +    filename:join([?FIXTURESDIR, "couch_stats_aggregates.cfg"])).
 +-define(STATS_INI_FIXTURE,
 +    filename:join([?FIXTURESDIR, "couch_stats_aggregates.ini"])).
-+-define(TIMEOUT, 1000).
-+-define(TIMEWAIT, 500).
++-define(TIMEOUT, 5000).
++-define(TIMEWAIT, 2500).
 +
 +
 +setup_collector() ->
@@ -9546,7 +9546,7 @@ index 0000000..f71ad2b
 +-include("couch_eunit.hrl").
 +-include_lib("couchdb/couch_db.hrl").
 +
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +
 +
 +setup() ->
@@ -9918,7 +9918,7 @@ index 0000000..ea1d034
 +
 +-include("couch_eunit.hrl").
 +
-+-define(TIMEOUT_S, 20).
++-define(TIMEOUT_S, 100).
 +
 +
 +setup() ->
@@ -10085,7 +10085,7 @@ index 0000000..8a463b5
 +
 +-include("couch_eunit.hrl").
 +
-+-define(TIMEOUT, 100).
++-define(TIMEOUT, 500).
 +
 +
 +setup(Opts) ->
@@ -10490,8 +10490,8 @@ index 0000000..cf59785
 +-define(ATT_TXT_NAME, <<"file.erl">>).
 +-define(FIXTURE_PNG, filename:join([?FIXTURESDIR, "logo.png"])).
 +-define(FIXTURE_TXT, ?FILE).
-+-define(TIMEOUT, 1000).
-+-define(TIMEOUT_EUNIT, 10).
++-define(TIMEOUT, 5000).
++-define(TIMEOUT_EUNIT, 50).
 +-define(TIMEWAIT, 100).
 +-define(i2l(I), integer_to_list(I)).
 +
@@ -11131,7 +11131,7 @@ index 0000000..725a97b
 +
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
 +-define(DELAY, 100).
-+-define(TIMEOUT, 30000).
++-define(TIMEOUT, 150000).
 +-define(TIMEOUT_S, ?TIMEOUT div 1000).
 +
 +
@@ -11370,7 +11370,7 @@ index 0000000..4e88ae7
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
 +-define(SUPPORTED_METHODS,
 +        "GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT, COPY, OPTIONS").
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +
 +
 +start() ->
@@ -11719,7 +11719,7 @@ index 0000000..fd3f513
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
 +-define(DDOC_ID, <<"_design/test">>).
 +-define(DOCS_COUNT, 5000).
-+-define(TIMEOUT, 30000).
++-define(TIMEOUT, 150000).
 +
 +
 +start() ->
@@ -11970,7 +11970,7 @@ index 0000000..acb1974
 +        ok = file:close(Fd),
 +        FileName
 +    end).
-+-define(TIMEOUT, 5000).
++-define(TIMEOUT, 25000).
 +
 +
 +start() ->
@@ -12524,7 +12524,7 @@ index 0000000..ed9b6e8
 +-define(DELAY, 500).
 +-define(FIXTURES_BUILDDIR,
 +        filename:join([?BUILDDIR, "test", "couchdb", "fixtures"])).
-+-define(TIMEOUT, 5000).
++-define(TIMEOUT, 25000).
 +
 +
 +setup(DName) ->
@@ -12838,7 +12838,7 @@ index 0000000..1bb266e
 +-include("couch_eunit.hrl").
 +-include_lib("couchdb/couch_db.hrl").
 +
-+-define(TIMEOUT, 3000).
++-define(TIMEOUT, 60000).
 +
 +
 +start() ->
@@ -13027,7 +13027,7 @@ index 0000000..7226860
 +-define(ADMIN_USER, {userctx, #user_ctx{roles=[<<"_admin">>]}}).
 +-define(DOC_ID, <<"foobar">>).
 +-define(NUM_CLIENTS, [100, 500, 1000, 2000, 5000, 10000]).
-+-define(TIMEOUT, 10000).
++-define(TIMEOUT, 50000).
 +
 +
 +start() ->
@@ -13273,7 +13273,7 @@ index 0000000..94b1957
 +-include_lib("couchdb/couch_db.hrl").
 +
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +-define(iofmt(S, A), lists:flatten(io_lib:format(S, A))).
 +
 +
@@ -13722,7 +13722,7 @@ index 0000000..c61f783
 +
 +-define(ADMIN_USER, {user_ctx, #user_ctx{roles=[<<"_admin">>]}}).
 +-define(DELAY, 100).
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +
 +
 +start() ->
