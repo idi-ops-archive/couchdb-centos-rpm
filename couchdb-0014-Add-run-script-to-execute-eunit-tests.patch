@@ -9027,7 +9027,7 @@ index 0000000..d156449
 +-define(STATS_INI_FIXTURE,
 +    filename:join([?FIXTURESDIR, "couch_stats_aggregates.ini"])).
 +-define(TIMEOUT, 5000).
-+-define(TIMEWAIT, 2500).
++-define(TIMEWAIT, 10000).
 +
 +
 +setup_collector() ->
@@ -10491,8 +10491,8 @@ index 0000000..cf59785
 +-define(FIXTURE_PNG, filename:join([?FIXTURESDIR, "logo.png"])).
 +-define(FIXTURE_TXT, ?FILE).
 +-define(TIMEOUT, 5000).
-+-define(TIMEOUT_EUNIT, 50).
-+-define(TIMEWAIT, 100).
++-define(TIMEOUT_EUNIT, 250).
++-define(TIMEWAIT, 500).
 +-define(i2l(I), integer_to_list(I)).
 +
 +
