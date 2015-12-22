@@ -1,0 +1,17 @@
+From: Peter Lemenkov <lemenkov@gmail.com>
+Date: Mon, 7 Jun 2010 15:08:42 +0400
+Subject: [PATCH] Remove pid-file after stop
+
+
+diff --git a/bin/couchdb.tpl.in b/bin/couchdb.tpl.in
+index f2027f1..ba034cc 100644
+--- a/bin/couchdb.tpl.in
++++ b/bin/couchdb.tpl.in
+@@ -305,6 +305,7 @@ EOF
+ 
+ stop_couchdb () {
+     PID=`_get_pid`
++    rm -f $PID_FILE
+     STOP_TIMEOUT=60
+     if test -n "$PID"; then
+         if test "$1" = "false"; then
