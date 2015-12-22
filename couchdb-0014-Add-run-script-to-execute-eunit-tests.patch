@@ -7759,7 +7759,7 @@ index 0000000..3089714
 +    couch_db:close(Db),
 +    [{timeout, ?TIMEOUT, {integer_to_list(N) ++ " times",
 +                           ?_assert(loop(DbName, N))}}
-+     || N <- [10, 100, 1000]].
++     || N <- [10, 50, 100]].
 +
 +loop(_, 0) ->
 +    true;
