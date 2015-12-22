@@ -158,7 +158,7 @@ install -D -m 755 %{SOURCE2} %{buildroot}%{_initrddir}/%{name}
 # Install /etc/tmpfiles.d entry
 install -D -m 644 %{SOURCE4} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 # Install systemd entry
-install -D -m 755 %{SOURCE3} %{buildroot}%{_unitdir}/%{name}.service
+install -D -m 644 %{SOURCE3} %{buildroot}%{_unitdir}/%{name}.service
 rm -rf %{buildroot}%{_sysconfdir}/rc.d/
 rm -rf %{buildroot}%{_sysconfdir}/default/
 # Temporary systemd + selinux wrapper

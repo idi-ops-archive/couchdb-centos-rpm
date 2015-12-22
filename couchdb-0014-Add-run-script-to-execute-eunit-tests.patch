@@ -10490,8 +10490,8 @@ index 0000000..cf59785
 +-define(ATT_TXT_NAME, <<"file.erl">>).
 +-define(FIXTURE_PNG, filename:join([?FIXTURESDIR, "logo.png"])).
 +-define(FIXTURE_TXT, ?FILE).
-+-define(TIMEOUT, 50000).
-+-define(TIMEOUT_EUNIT, 500).
++-define(TIMEOUT, 500000).
++-define(TIMEOUT_EUNIT, 50000).
 +-define(TIMEWAIT, 100).
 +-define(i2l(I), integer_to_list(I)).
 +
