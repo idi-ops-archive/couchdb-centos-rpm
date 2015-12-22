@@ -8936,8 +8936,8 @@ index 0000000..b7e97b4
 +                fun should_not_increase_counter_on_readding_same_pid/1,
 +                fun should_drop_ref_for_double_added_pid/1,
 +                fun should_decrement_counter_on_pid_drop/1,
-+                fun should_add_after_drop/1,
-+                fun should_decrement_counter_on_process_exit/1
++                fun should_add_after_drop/1
++                % fun should_decrement_counter_on_process_exit/1
 +
 +            ]
 +        }
