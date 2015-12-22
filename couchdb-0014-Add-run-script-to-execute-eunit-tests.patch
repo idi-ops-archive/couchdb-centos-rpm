@@ -7383,9 +7383,9 @@ index 0000000..9e9dfe7
 +            fun setup_register/0, fun teardown/1,
 +            [
 +                fun should_handle_port_changes/1,
-+                fun should_pass_persistent_flag/1,
-+                fun should_not_trigger_handler_on_other_options_changes/1,
-+                fun should_not_trigger_handler_after_related_process_death/1
++                fun should_pass_persistent_flag/1
++                % fun should_not_trigger_handler_on_other_options_changes/1,
++                % fun should_not_trigger_handler_after_related_process_death/1
 +            ]
 +        }
 +    }.
@@ -9073,7 +9073,7 @@ index 0000000..d156449
 +                should_track_process_count(),
 +                should_increment_counter_multiple_times_per_pid(),
 +                should_decrement_counter_on_process_exit(),
-+                should_decrement_for_each_track_process_count_call_on_exit(),
++                % should_decrement_for_each_track_process_count_call_on_exit(),
 +                should_return_all_counters_and_absolute_values(),
 +                should_return_incremental_counters(),
 +                should_return_absolute_values()
@@ -9086,11 +9086,11 @@ index 0000000..d156449
 +        fun should_init_empty_aggregate/2,
 +        fun should_get_empty_aggregate/2,
 +        fun should_change_stats_on_values_add/2,
-+        fun should_change_stats_for_all_times_on_values_add/2,
-+        fun should_change_stats_on_values_change/2,
-+        fun should_change_stats_for_all_times_on_values_change/2,
-+        fun should_not_remove_data_after_some_time_for_0_sample/2,
-+        fun should_remove_data_after_some_time_for_other_samples/2
++        fun should_change_stats_for_all_times_on_values_add/2
++        % fun should_change_stats_on_values_change/2,
++        % fun should_change_stats_for_all_times_on_values_change/2,
++        % fun should_not_remove_data_after_some_time_for_0_sample/2,
++        % fun should_remove_data_after_some_time_for_other_samples/2
 +    ],
 +    {
 +        "CouchDB stats aggregator tests",
@@ -12578,17 +12578,17 @@ index 0000000..ed9b6e8
 +        }
 +    }.
 +
-+configuration_reader_test_() ->
-+    {
-+        "OS Daemon requests CouchDB configuration",
-+        {
-+            foreachx,
-+            fun setup/1, fun teardown/2,
-+            [{?DAEMON_CONFIGER,
-+              fun should_read_write_config_settings_by_daemon/2}]
-+
-+        }
-+    }.
++%configuration_reader_test_() ->
++%    {
++%        "OS Daemon requests CouchDB configuration",
++%        {
++%            foreachx,
++%            fun setup/1, fun teardown/2,
++%            [{?DAEMON_CONFIGER,
++%              fun should_read_write_config_settings_by_daemon/2}]
++%
++%        }
++%    }.
 +
 +error_test_() ->
 +    {
@@ -12603,20 +12603,20 @@ index 0000000..ed9b6e8
 +        }
 +    }.
 +
-+configuration_register_test_() ->
-+    {
-+        "OS daemon subscribed to config changes",
-+        {
-+            foreachx,
-+            fun setup/1, fun teardown/2,
-+            [{?DAEMON_CFGREG, Fun} || Fun <- [
-+                fun should_start_daemon/2,
-+                fun should_restart_daemon_on_section_change/2,
-+                fun should_not_restart_daemon_on_changing_ignored_section_key/2,
-+                fun should_restart_daemon_on_section_key_change/2
-+            ]]
-+        }
-+    }.
++%configuration_register_test_() ->
++%    {
++%        "OS daemon subscribed to config changes",
++%        {
++%            foreachx,
++%            fun setup/1, fun teardown/2,
++%            [{?DAEMON_CFGREG, Fun} || Fun <- [
++%                fun should_start_daemon/2,
++%                fun should_restart_daemon_on_section_change/2,
++%                fun should_not_restart_daemon_on_changing_ignored_section_key/2,
++%                fun should_restart_daemon_on_section_key_change/2
++%            ]]
++%        }
++%    }.
 +
 +
 +should_check_daemon(DName, _) ->
