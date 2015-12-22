@@ -12524,7 +12524,7 @@ index 0000000..ed9b6e8
 +-define(DELAY, 100).
 +-define(FIXTURES_BUILDDIR,
 +        filename:join([?BUILDDIR, "test", "couchdb", "fixtures"])).
-+-define(TIMEOUT, 1000).
++-define(TIMEOUT, 5000).
 +
 +
 +setup(DName) ->
