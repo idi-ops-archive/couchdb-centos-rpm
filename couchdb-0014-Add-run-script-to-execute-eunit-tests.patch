@@ -13026,7 +13026,7 @@ index 0000000..7226860
 +-define(i2l(I), integer_to_list(I)).
 +-define(ADMIN_USER, {userctx, #user_ctx{roles=[<<"_admin">>]}}).
 +-define(DOC_ID, <<"foobar">>).
-+-define(NUM_CLIENTS, [100, 500, 1000, 2000, 5000, 10000]).
++-define(NUM_CLIENTS, [100, 500, 1000, 2000, 5000]).
 +-define(TIMEOUT, 50000).
 +
 +
