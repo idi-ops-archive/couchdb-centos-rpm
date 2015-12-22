@@ -12521,10 +12521,10 @@ index 0000000..ed9b6e8
 +-define(DAEMON_DIE_ON_BOOT, "os_daemon_die_on_boot.sh").
 +-define(DAEMON_DIE_QUICKLY, "os_daemon_die_quickly.sh").
 +-define(DAEMON_CFGREG, "test_cfg_register").
-+-define(DELAY, 200).
++-define(DELAY, 500).
 +-define(FIXTURES_BUILDDIR,
 +        filename:join([?BUILDDIR, "test", "couchdb", "fixtures"])).
-+-define(TIMEOUT, 500000).
++-define(TIMEOUT, 5000000).
 +
 +
 +setup(DName) ->
@@ -12720,17 +12720,17 @@ index 0000000..ed9b6e8
 +
 +should_start_daemon(DName, _) ->
 +    ?_test(begin
-+        wait_for_start(10),
++        wait_for_start(20),
 +        {ok, [D]} = couch_os_daemons:info([table]),
 +        check_daemon(D, DName, running, 0, [{"s1"}, {"s2", "k"}])
 +    end).
 +
 +should_restart_daemon_on_section_change(DName, _) ->
 +    ?_test(begin
-+        wait_for_start(10),
++        wait_for_start(20),
 +        {ok, [D1]} = couch_os_daemons:info([table]),
 +        couch_config:set("s1", "k", "foo", false),
-+        wait_for_restart(10),
++        wait_for_restart(20),
 +        {ok, [D2]} = couch_os_daemons:info([table]),
 +        check_daemon(D2, DName, running, 0, [{"s1"}, {"s2", "k"}]),
 +        ?assertNotEqual(D1, D2)
@@ -12738,7 +12738,7 @@ index 0000000..ed9b6e8
 +
 +should_not_restart_daemon_on_changing_ignored_section_key(_, _) ->
 +    ?_test(begin
-+        wait_for_start(10),
++        wait_for_start(20),
 +        {ok, [D1]} = couch_os_daemons:info([table]),
 +        couch_config:set("s2", "k2", "baz", false),
 +        timer:sleep(?DELAY),
@@ -12748,10 +12748,10 @@ index 0000000..ed9b6e8
 +
 +should_restart_daemon_on_section_key_change(DName, _) ->
 +    ?_test(begin
-+        wait_for_start(10),
++        wait_for_start(20),
 +        {ok, [D1]} = couch_os_daemons:info([table]),
 +        couch_config:set("s2", "k", "bingo", false),
-+        wait_for_restart(10),
++        wait_for_restart(20),
 +        {ok, [D2]} = couch_os_daemons:info([table]),
 +        check_daemon(D2, DName, running, 0, [{"s1"}, {"s2", "k"}]),
 +        ?assertNotEqual(D1, D2)
