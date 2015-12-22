@@ -9026,8 +9026,8 @@ index 0000000..d156449
 +    filename:join([?FIXTURESDIR, "couch_stats_aggregates.cfg"])).
 +-define(STATS_INI_FIXTURE,
 +    filename:join([?FIXTURESDIR, "couch_stats_aggregates.ini"])).
-+-define(TIMEOUT, 5000).
-+-define(TIMEWAIT, 2500).
++-define(TIMEOUT, 200000).
++-define(TIMEWAIT, 10000).
 +
 +
 +setup_collector() ->
